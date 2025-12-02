@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"math"
 	"strconv"
 	"strings"
@@ -93,7 +92,6 @@ func part2(input string) any {
 	count := 0
 	curr := 50
 
-	fmt.Println("Starting at: ", curr)
 	for _, move := range moves {
 		var next int
 
@@ -105,10 +103,6 @@ func part2(input string) any {
 		} else {
 			next = curr + (move.distance % 100)
 		}
-
-		fmt.Printf("Moving from %d -> %d spaces to the %s\n", curr, move.distance, move.direction)
-		fmt.Printf("\tnew location: %d\n", next)
-		fmt.Printf("\tmade %d full rotations\n", fullRotations)
 
 		if curr != 0 && next < 0 {
 			count++
@@ -125,8 +119,6 @@ func part2(input string) any {
 			realLocation = next % 100
 		}
 
-		fmt.Printf("\tcrossed zero a total of %d times\n", count)
-		fmt.Printf("\tfinal location: %d\n", realLocation)
 		curr = realLocation
 	}
 
