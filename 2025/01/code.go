@@ -1,10 +1,9 @@
 package main
 
 import (
-	"bufio"
+	"aoc-in-go/2025/lib"
 	"math"
 	"strconv"
-	"strings"
 
 	"github.com/jpillora/puzzler/harness/aoc"
 )
@@ -18,16 +17,6 @@ type move struct {
 	distance  int
 }
 
-func SplitLines(s string) []string {
-	var lines []string
-	sc := bufio.NewScanner(strings.NewReader(s))
-	for sc.Scan() {
-		lines = append(lines, sc.Text())
-	}
-
-	return lines
-}
-
 func run(runPart2 bool, input string) any {
 	if runPart2 {
 		return part2(input)
@@ -37,7 +26,7 @@ func run(runPart2 bool, input string) any {
 }
 
 func part1(input string) any {
-	lines := SplitLines(input)
+	lines := lib.SplitLines(input)
 	moves := make([]move, len(lines))
 
 	for i, line := range lines {
@@ -78,7 +67,7 @@ func part1(input string) any {
 }
 
 func part2(input string) any {
-	lines := SplitLines(input)
+	lines := lib.SplitLines(input)
 	moves := make([]move, len(lines))
 
 	for i, line := range lines {
